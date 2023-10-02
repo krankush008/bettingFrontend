@@ -7,7 +7,6 @@ function Signin(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const backendSigninURl = 'http://localhost:8384/signin';
 
   const paragraphStyle = {
     color: 'red',
@@ -31,7 +30,7 @@ function Signin(props) {
       return; // Prevent form submission
     }
 
-    const response = await axios.get(backendSigninURl, {
+    const response = await axios.get(process.env.REACT_APP_BACKEND_SIGNIN_URL, {
       params: {
         email: email,
         password: password,

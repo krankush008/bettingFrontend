@@ -8,7 +8,6 @@ function Signup(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const backendSignupURl = 'http://localhost:8384/signup';
 
   const paragraphStyle = {
     color: 'red',
@@ -36,7 +35,7 @@ function Signup(props) {
       return; // Prevent form submission
     }
 
-    const response = await axios.post(backendSignupURl, {
+    const response = await axios.post(process.env.REACT_APP_BACKEND_SIGNUP_URL, {
       method: 'POST',
       headers: {
         "Content-Type": 'application/json'
